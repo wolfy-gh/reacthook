@@ -1,0 +1,26 @@
+.movie_card{
+    background-color:white ;
+    width: 24%;
+    margin :2% 0.5%;
+    border-radius: 10px;
+    box-shadow: 0 1px 8px white;
+}
+.movie_card > .movie_head {
+    display : flex;
+    justify-content: space-between;
+}
+.movie_card > .movie_head> h3 {
+    padding: 10px 0 10px 20px;
+    font-size: 1.2rem;
+}
+.movie_card > .movie_head> p{
+    padding: 10px;
+}
+.movie_card > img {
+    width:100%;
+    height: 300px;
+    border-radius: 5px 5px 0 0;
+}
+.movie_card > p {
+    padding:0 10px 5px 10px;
+}
