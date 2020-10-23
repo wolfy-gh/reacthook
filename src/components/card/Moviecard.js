@@ -12,7 +12,7 @@ function Moviecard({ title, postUrl, description, rate }) {
                             const ratingValue = i + 1
                             return <label key={i}>
                                             <input type="radio" name="rate" value={ratingValue}/>
-                                            <FaStar className="star-p" color={ratingValue <= rate ? "goldenrod": "gray"} />
+                                            <FaStar className="star-p" color={ratingValue = rate ? "goldenrod": "gray"} />
                                     </label>
                         })}
             </div>
