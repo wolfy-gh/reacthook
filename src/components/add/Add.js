@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import { Modal } from 'react-bootstrap';
 import './add.css'
+import './star.css'
 import AddBoxIcon from '@material-ui/icons/AddBox';
+import {FaStar} from 'react-icons/fa'
+
 
 function Add(props) {
     const [show, setShow] = useState(false)
@@ -9,9 +12,9 @@ function Add(props) {
     const handleShow = () => setShow(true);
     const [movie, setMovie] = useState({
         title: "",
-        postUrl:"",
+        postUrl: "",
         description: "",
-        rate: "",
+        rate:"",
     })
     function handleChange(e) {
         const { name, value } = e.target
@@ -38,16 +41,23 @@ function Add(props) {
                 <Modal.Body>
                     <form>
                         <input onChange={handleChange} name="title" value={movie.title} placeholder="Movie Title" />
-                        <input onChange={handleChange} name="postUrl" value={movie.postUrl} placeholder="Movie subtitleTitle" />
+                        <input onChange={handleChange} name="postUrl" value={movie.postUrl} placeholder="Movie PostURL" />
                         <textarea name="description" onChange={handleChange} value={movie.description} placeholder="Description" />
-                        <select name="rate" value={movie.rate} onChange={handleChange} placeholder="Rate">
+                        {/* <select name="rate" value={movie.rate} onChange={handleChange} placeholder="Rate">
                             <option>-Rate-</option>
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
                             <option>4</option>
                             <option>5</option>
-                        </select>
+                        </select> */}
+                        {[...Array(5)].map((star, i) => {
+                            const ratingValue = i + 1
+                            return <label key={i}>
+                                            <input type="radio" name="rate" value={ratingValue} onChange={handleChange}/>
+                                            <FaStar size={30} className="star" color={ratingValue <= movie.rate ? "goldenrod": "gray"} />
+                                    </label>
+                        })}
                         <button type="submit" onClick={submitMovie}>Add</button>
                     </form>
                 </Modal.Body>
