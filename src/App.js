@@ -25,7 +25,7 @@ function App() {
         <div className="add">
           <Add onAdd={AddMovie} />
         </div>
-        <Filter setSearch={setSearch} setRateSearch={setRateSearch}/>
+        <Filter setSearch={setSearch} setRateSearch={setRateSearch} rateSearch={rateSearch}/>
         <span></span>
       </div>
       <Container className="container">
